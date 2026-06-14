@@ -8,6 +8,49 @@
 </head>
 <body>
 
-insert picture here
+<img id="image" src="image1.png">
+
+<div class="controls">
+    <button id="backBtn">←</button>
+    <button id="nextBtn">→</button>
+</div>
+
+<script>
+const images = [
+    "bebesnote1.png",
+    "bebesnote2.png"
+];
+
+let current = 0;
+
+const image = document.getElementById("image");
+
+function updateImage() {
+    image.src = images[current];
+
+    document.getElementById("backBtn").style.visibility =
+        current === 0 ? "hidden" : "visible";
+
+    document.getElementById("nextBtn").style.visibility =
+        current === images.length - 1 ? "hidden" : "visible";
+}
+
+document.getElementById("nextBtn").onclick = () => {
+    if (current < images.length - 1) {
+        current++;
+        updateImage();
+    }
+};
+
+document.getElementById("backBtn").onclick = () => {
+    if (current > 0) {
+        current--;
+        updateImage();
+    }
+};
+
+updateImage();
+</script>
+
 </body>
 </html>
