@@ -15,7 +15,12 @@
     <button id="nextBtn">→</button>
 </div>
 
+    <audio id="pageFlip" src="pageflip.mp3"></audio>
+    
 <script>
+
+const flipSound = document.getElementById("pageFlip");
+    
 const images = [
     "bebesnote1.png",
     "bebesnote2.png"
@@ -37,6 +42,9 @@ function updateImage() {
 
 document.getElementById("nextBtn").onclick = () => {
     if (current < images.length - 1) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+
         current++;
         updateImage();
     }
@@ -44,12 +52,14 @@ document.getElementById("nextBtn").onclick = () => {
 
 document.getElementById("backBtn").onclick = () => {
     if (current > 0) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+
         current--;
         updateImage();
     }
 };
 
-updateImage();
 </script>
 
 </body>
