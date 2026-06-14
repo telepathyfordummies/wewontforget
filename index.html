@@ -60,6 +60,18 @@ document.getElementById("backBtn").onclick = () => {
     }
 };
 
+    document.getElementById("backBtn").onclick = () => {
+    if (current > 0) {
+        flipSound.currentTime = 0;
+        flipSound.play();
+
+        current--;
+        updateImage();
+    }
+};
+
+updateImage();
+    
 </script>
 
 </body>
